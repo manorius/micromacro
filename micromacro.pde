@@ -17,7 +17,7 @@ void setup() {
       println(cameras[i]);
     }
   }
-  size(640, 480);
+  size(720, 576);
   video = new Capture(this, 720, 576,cameras[0]);
   opencv = new OpenCV(this, 720, 576); 
 opencv.startBackgroundSubtraction(5, 3, 0.5);
@@ -40,6 +40,16 @@ opencv.updateBackground();
  for (Contour contour : opencv.findContours()) {
     contour.draw();
   }
+  fill(255, 0, 0);
+  stroke(255, 0, 0);
+  // DRAW MAPPING MARKERS
+  for(int n=0;n<5;n++)
+  {
+    ellipse(5+(n*710), 5, 5, 5);
+    ellipse(5+(n*710), 571, 5, 5);
+  }
+
+  
   
 }
 
